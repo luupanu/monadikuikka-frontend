@@ -1,0 +1,2 @@
+export const BIRDNEST_HEIGHT = 500000;
+export const BIRDNEST_WIDTH = 500000;

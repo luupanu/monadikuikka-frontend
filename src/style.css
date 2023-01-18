@@ -1,0 +1,198 @@
+:root {
+    --min-side: min(calc(100vh - 80px - 11.920px), calc(100vw - 360px - 13px - 11px));
+}
+
+#app {
+    display: grid;
+    grid-template-areas:
+        "dronelist birdmap .";
+    grid-template-columns: 360px min-content auto;
+    height: 100vh;
+    margin: 0px 11px;
+}
+
+.birdmap {
+    display: grid;
+    grid-area: birdmap;
+    grid-template-columns: min-content;
+    grid-template-rows: min-content auto;
+    margin-left: 2px;
+}
+
+.dronelist {
+    display: grid;
+    grid-area: dronelist;
+    grid-auto-rows: min-content;
+    margin-bottom: 20px;
+    overflow-y: scroll;
+}
+
+.drones {
+    display: grid;
+    grid-auto-rows: min-content;
+    grid-gap: 20px;
+    margin-right: 3px;
+    padding-right: 11px;
+}
+
+.dronelist p,
+.dronelist h2,
+.dronelist h3 {
+    display: grid;
+    align-items: center;
+    text-align: center;
+}
+
+.dronelist h2 {
+    display: grid;
+    background-color: white;
+    align-items: center;
+    height: 100px;
+    margin: 0;
+    padding: 6px 10px;
+    position: sticky;
+    top: 0;
+}
+
+.dronelist h3 {
+    margin: 20px 0px;
+}
+
+.dronelist h3:first-of-type {
+    margin-top: 0;
+}
+
+.drone {
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid black;
+    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.4);
+    overflow-wrap: anywhere;
+    padding: 8px 0px;
+    width: 100%;
+}
+
+.drone:nth-child(n) {
+    background-image: url('../public/drone1.png');    
+}
+
+.drone:nth-child(2n) {
+    background-image: url('../public/drone2.png');
+}
+
+.drone:nth-child(3n) {
+    background-image: url('../public/drone3.png');
+}
+
+.drone > p {
+    display: grid;
+    align-items: start;
+    grid-gap: 8px;
+    grid-template-columns: 140px auto;
+    margin: 2px 0px;
+    text-align: left;
+}
+
+.drone-key {
+    font-weight: bold;
+    text-align: right;
+}
+
+.loading {
+    display: grid;
+    align-content: center;
+    height: 100vh;
+    font-size: 28px;
+    text-align: center;
+    width: 100%;
+}
+
+.title {
+    align-self: center;
+    text-align: center;
+}
+
+a {
+    color: #10286d;
+}
+
+canvas {
+    align-self: start;
+    background-color: #e9eaed;
+    background-image: url('../public/kuikka.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 25% 25%;
+    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.4);
+    height: var(--min-side);
+    width: var(--min-side);
+}
+
+@media (max-width: 1562px) {
+    #app {
+        grid-template-columns: 360px auto;
+    }
+}
+
+@media (max-width: 1179px) {
+    .birdmap {
+        grid-template-columns: auto;
+    }
+}
+
+@media (max-width: 835px) {
+    #app {
+        grid-template-areas:
+            "title"
+            "birdmap"
+            "dronelist";
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto;
+        margin: 0px 11px 0 11px;
+    }
+
+    .birdmap {
+        margin: 0;
+    }
+
+    .drones {
+        margin-right: 0;
+        padding-right: 0;
+        max-width: 340px;
+    }
+
+    .dronelist {
+        justify-content: center;
+        height: unset;
+        overflow-y: unset;
+    }
+
+    .dronelist h2 {
+        position: unset;
+        top: unset;
+    }
+
+    .title {
+        margin-bottom: 19.920px;
+    }
+
+    canvas {
+        aspect-ratio: 1 / 1;
+        height: auto;
+        width: 100%;
+        margin-bottom: 11.920px;
+    }
+}
+
+@media (max-width: 375px) {
+    .drone {
+        width: unset;
+    }
+}
+
+@media (max-width: 324px) {
+    .drone > p {
+        align-items: end;
+        grid-template-columns: 94px auto;
+    }
+}
